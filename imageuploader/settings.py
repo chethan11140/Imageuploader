@@ -28,7 +28,7 @@ import os
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["yourdomain.com", "www.yourdomain.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 
@@ -45,13 +45,15 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.authentication.AuthenticationMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
 ]
 
 ROOT_URLCONF = 'imageuploader.urls'
